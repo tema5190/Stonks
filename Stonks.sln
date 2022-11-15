@@ -1,8 +1,54 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{37736E69-823B-4329-B6D4-2FD68CCAC4D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{CD8BC262-8BDB-4B62-A028-8C1D7732AF1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{880F4EA9-AAE1-4F27-9887-CED8B4608FB1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stonks.GRPCBackend", "Stonks.GRPCBackend\Stonks.GRPCBackend.csproj", "{A992DD36-A83B-4351-BE67-412F635DB763}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "clients", "clients", "{8EB03EC7-0779-4EEB-9771-91E91589224F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{A4F4B19F-697A-425A-8041-E683E3132A7A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stonks.ConsoleClient", "Stonks.ConsoleClient\Stonks.ConsoleClient.csproj", "{33607F61-E62E-4333-BDCB-20953AE350C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Protos", "Protos", "{F17E021C-D6FF-4110-B660-5367539E8E8F}"
+	ProjectSection(SolutionItems) = preProject
+		Protos\stock.proto = Protos\stock.proto
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A992DD36-A83B-4351-BE67-412F635DB763}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A992DD36-A83B-4351-BE67-412F635DB763}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A992DD36-A83B-4351-BE67-412F635DB763}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A992DD36-A83B-4351-BE67-412F635DB763}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33607F61-E62E-4333-BDCB-20953AE350C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33607F61-E62E-4333-BDCB-20953AE350C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33607F61-E62E-4333-BDCB-20953AE350C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33607F61-E62E-4333-BDCB-20953AE350C2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{880F4EA9-AAE1-4F27-9887-CED8B4608FB1} = {37736E69-823B-4329-B6D4-2FD68CCAC4D6}
+		{A992DD36-A83B-4351-BE67-412F635DB763} = {880F4EA9-AAE1-4F27-9887-CED8B4608FB1}
+		{8EB03EC7-0779-4EEB-9771-91E91589224F} = {37736E69-823B-4329-B6D4-2FD68CCAC4D6}
+		{A4F4B19F-697A-425A-8041-E683E3132A7A} = {37736E69-823B-4329-B6D4-2FD68CCAC4D6}
+		{33607F61-E62E-4333-BDCB-20953AE350C2} = {8EB03EC7-0779-4EEB-9771-91E91589224F}
+		{F17E021C-D6FF-4110-B660-5367539E8E8F} = {A4F4B19F-697A-425A-8041-E683E3132A7A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B221F042-6DB6-40F3-ADDF-9F4E27967ACE}
 	EndGlobalSection
 EndGlobal

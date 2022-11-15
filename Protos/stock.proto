@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "gRPCStockServiceContracts";
+package gRPCStockServiceContracts;
+
+service StockService {
+  rpc GetStockStream (google.protobuf.Empty) returns (stream StockData);
+}
+
+message StockData {
+  string stockSymbol = 1;
+  int32 currentPrice = 2;
+  google.protobuf.Timestamp dateTimeStamp = 3;
+}
