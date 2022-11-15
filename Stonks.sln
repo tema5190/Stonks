@@ -14,6 +14,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "clients", "clients", "{8EB03EC7-0779-4EEB-9771-91E91589224F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{A4F4B19F-697A-425A-8041-E683E3132A7A}"
+	ProjectSection(SolutionItems) = preProject
+		Protos\stock.proto = Protos\stock.proto
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stonks.ConsoleClient", "Stonks.ConsoleClient\Stonks.ConsoleClient.csproj", "{33607F61-E62E-4333-BDCB-20953AE350C2}"
 EndProject

@@ -15,7 +15,7 @@ internal class Program
             .Build();
         
         var stockServiceBaseAddress = 
-        config.GetSection("StockServerAddress").ToString();
+        config.GetSection("StockServerAddress").Value;
         
         
         using var channel = GrpcChannel.ForAddress(stockServiceBaseAddress);

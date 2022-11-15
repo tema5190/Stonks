@@ -12,6 +12,6 @@ service StockService {
 
 message StockData {
   string stockSymbol = 1;
-  int32 currentPrice = 2;
+  uint32 currentPrice = 2;
   google.protobuf.Timestamp dateTimeStamp = 3;
 }

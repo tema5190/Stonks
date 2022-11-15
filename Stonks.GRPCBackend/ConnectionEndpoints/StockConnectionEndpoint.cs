@@ -4,39 +4,38 @@ using gRPCStockServiceContracts;
 
 namespace Stonks.GRPCBackend.Services;
 
-public class StockConnectionEndpoint: gRPCStockServiceContracts.StockService.StockServiceBase
+public class StockConnectionEndpoint : gRPCStockServiceContracts.StockService.StockServiceBase
 {
     private readonly ILogger<StockConnectionEndpoint> _logger;
+    private readonly IStockService _stockService;
 
-    public StockConnectionEndpoint(ILogger<StockConnectionEndpoint> logger)
+    public StockConnectionEndpoint(ILogger<StockConnectionEndpoint> logger, IStockService stockService)
     {
         _logger = logger;
+        _stockService = stockService;
     }
-    
-    public override async Task GetStockStream(Empty _, IServerStreamWriter<StockData> responseStream, ServerCallContext context)
+
+    public override async Task GetStockStream(Empty _, IServerStreamWriter<StockData> responseStream,
+        ServerCallContext context)
     {
-        var rng = new Random();
-        var i = 500;
-        while (!context.CancellationToken.IsCancellationRequested && i > 0)
+        while (!context.CancellationToken.IsCancellationRequested)
         {
             await Task.Delay(1000);
-        
-            var forecast = new StockData
+
+            var latestStockPriceRecord = await _stockService.GetLatestStockPriceRecord("MSFT");
+
+            var stockData = new StockData()
             {
-                StockSymbol = "MSFT",
-                CurrentPrice = rng.Next(100,200),
-                DateTimeStamp = Timestamp.FromDateTime(DateTime.Now.ToUniversalTime()),
+                StockSymbol = latestStockPriceRecord.StockSymbol,
+                DateTimeStamp = Timestamp.FromDateTime(latestStockPriceRecord.DateTime),
+                CurrentPrice = latestStockPriceRecord.Price
             };
-
             
-            _logger.LogInformation($"Sending stockdata response + {Thread.CurrentThread.ManagedThreadId}");
-
-            i--;
-
-            if (!context.CancellationToken.IsCancellationRequested) // might be requested during the calculation so check twice.
+            if (!context.CancellationToken
+                    .IsCancellationRequested) // might be requested during the calculation so check twice.
             {
-                await responseStream.WriteAsync(forecast);    
+                await responseStream.WriteAsync(stockData);
             }
         }
-    }  
+    }
 }

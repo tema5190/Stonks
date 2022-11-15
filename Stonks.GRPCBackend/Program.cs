@@ -3,6 +3,7 @@ using Stonks.GRPCBackend.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddGrpc();
+builder.Services.AddScoped<IStockService, StockService>();
 
 var app = builder.Build();
 
