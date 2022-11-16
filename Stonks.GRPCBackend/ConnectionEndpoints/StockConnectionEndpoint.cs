@@ -15,24 +15,24 @@ public class StockConnectionEndpoint : gRPCStockServiceContracts.StockService.St
         _stockService = stockService;
     }
 
-    public override async Task GetStockStream(Empty _, IServerStreamWriter<StockData> responseStream,
+    public override async Task GetStockStream(StockDataRequest stockDataRequest, IServerStreamWriter<StockData> responseStream,
         ServerCallContext context)
     {
         while (!context.CancellationToken.IsCancellationRequested)
         {
-            await Task.Delay(1000);
+            await Task.Delay(1000); // 1 second delay
 
-            var latestStockPriceRecord = await _stockService.GetLatestStockPriceRecord("MSFT");
+            var latestStockPriceRecord = await _stockService.GetLatestStockPriceRecord(stockDataRequest.RequestedStockSymbol);
 
-            var stockData = new StockData()
+            var stockData = new StockData
             {
                 StockSymbol = latestStockPriceRecord.StockSymbol,
                 DateTimeStamp = Timestamp.FromDateTime(latestStockPriceRecord.DateTime),
                 CurrentPrice = latestStockPriceRecord.Price
             };
-            
-            if (!context.CancellationToken
-                    .IsCancellationRequested) // might be requested during the calculation so check twice.
+
+            // Cancellation request might be called during prior processing
+            if (!context.CancellationToken.IsCancellationRequested)
             {
                 await responseStream.WriteAsync(stockData);
             }

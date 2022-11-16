@@ -7,7 +7,11 @@ option csharp_namespace = "gRPCStockServiceContracts";
 package gRPCStockServiceContracts;
 
 service StockService {
-  rpc GetStockStream (google.protobuf.Empty) returns (stream StockData);
+  rpc GetStockStream (StockDataRequest) returns (stream StockData);
+}
+
+message StockDataRequest {
+  string requestedStockSymbol = 1;
 }
 
 message StockData {
