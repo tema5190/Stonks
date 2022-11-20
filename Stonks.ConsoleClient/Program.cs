@@ -40,6 +40,8 @@ internal class Program
                 }
 
                 stockServiceBaseAddress = uri.ToString();
+                Console.WriteLine($"Now listening {stockServiceBaseAddress}");
+                continue;
             }
 
             if (!Regex.IsMatch(command, @"^[1-3]+$"))
@@ -67,7 +69,8 @@ internal class Program
                     {
                         await foreach (var stockData in streamingCall.ResponseStream.ReadAllAsync(cancellationToken: cts.Token))
                         {
-                            Console.WriteLine($"{stockData.DateTimeStamp.ToDateTime():s} | {stockData.StockSymbol} | {stockData.CurrentPrice/100}$");
+                            var decimalConsoleValue = (decimal) stockData.CurrentPrice / 100;
+                            Console.WriteLine($"{stockData.DateTimeStamp.ToDateTime():s} | {stockData.StockSymbol} | {decimalConsoleValue}$");
                         }
                     }
                     catch (Exception ex)
