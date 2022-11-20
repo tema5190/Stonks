@@ -1,5 +1,6 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
+using gRPCStockCommon;
 using gRPCStockServiceContracts;
 using Microsoft.Extensions.Configuration;
 
@@ -13,12 +14,17 @@ internal class Program
             .Build();
         
         var stockServiceBaseAddress = 
-        config.GetSection("StockServerAddress").Value;
+        config.GetSection("StockServerAddress")?.Value;
+
+        if(string.IsNullOrEmpty(stockServiceBaseAddress))
+        {
+            throw new Exception("StockServer based address not found in configuration file");
+        }
 
         using var channel = GrpcChannel.ForAddress(stockServiceBaseAddress);
-        var client = new StockService.StockServiceClient(channel);
+        var client = new StockServiceClientCommon(channel);
 
-        var cts = new CancellationTokenSource(TimeSpan.FromSeconds(50));
+        var cts = new CancellationTokenSource(TimeSpan.FromSeconds(300));
         
         var requestedStockList = new List<StockDataRequest>()
         {
@@ -45,6 +51,7 @@ internal class Program
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
+                    throw;
                 }
             });
             

@@ -1,10 +1,11 @@
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
+using gRPCStockCommon;
 using gRPCStockServiceContracts;
 
 namespace Stonks.GRPCBackend.Services;
 
-public class StockConnectionEndpoint : gRPCStockServiceContracts.StockService.StockServiceBase
+public class StockConnectionEndpoint : StockServiceBaseCommon
 {
     private readonly ILogger<StockConnectionEndpoint> _logger;
     private readonly IStockService _stockService;

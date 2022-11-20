@@ -15,8 +15,8 @@
         </PackageReference>
     </ItemGroup>
 
-	<ItemGroup>
-		<Protobuf Include="..\Protos\stock.proto" GrpcServices="Server" Link="shared\Protos\stock.proto" />
-	</ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\gRPCStockCommon\gRPCStockCommon.csproj" />
+    </ItemGroup>
     
 </Project>

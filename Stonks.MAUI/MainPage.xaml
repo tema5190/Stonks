@@ -53,7 +53,7 @@
                 
                 >
                 <Label Text="Data source:"></Label>
-                <Entry x:Name="InputView" WidthRequest="400" />
+                <Entry x:Name="AddressInputEntry" WidthRequest="400" />
 
             </HorizontalStackLayout>
 
