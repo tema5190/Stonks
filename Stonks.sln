@@ -14,9 +14,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "clients", "clients", "{8EB03EC7-0779-4EEB-9771-91E91589224F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{A4F4B19F-697A-425A-8041-E683E3132A7A}"
-	ProjectSection(SolutionItems) = preProject
-		Protos\stock.proto = Protos\stock.proto
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stonks.ConsoleClient", "Stonks.ConsoleClient\Stonks.ConsoleClient.csproj", "{33607F61-E62E-4333-BDCB-20953AE350C2}"
 EndProject
@@ -24,8 +21,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Protos", "Protos", "{F17E02
 	ProjectSection(SolutionItems) = preProject
 		Protos\stock.proto = Protos\stock.proto
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stonks.MAUI", "Stonks.MAUI\Stonks.MAUI.csproj", "{FCB38ED4-7D68-409A-AADF-A3AEA1240A55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,12 +36,6 @@ Global
 		{33607F61-E62E-4333-BDCB-20953AE350C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33607F61-E62E-4333-BDCB-20953AE350C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33607F61-E62E-4333-BDCB-20953AE350C2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FCB38ED4-7D68-409A-AADF-A3AEA1240A55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FCB38ED4-7D68-409A-AADF-A3AEA1240A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FCB38ED4-7D68-409A-AADF-A3AEA1240A55}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{FCB38ED4-7D68-409A-AADF-A3AEA1240A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FCB38ED4-7D68-409A-AADF-A3AEA1240A55}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FCB38ED4-7D68-409A-AADF-A3AEA1240A55}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,7 +47,6 @@ Global
 		{A4F4B19F-697A-425A-8041-E683E3132A7A} = {37736E69-823B-4329-B6D4-2FD68CCAC4D6}
 		{33607F61-E62E-4333-BDCB-20953AE350C2} = {8EB03EC7-0779-4EEB-9771-91E91589224F}
 		{F17E021C-D6FF-4110-B660-5367539E8E8F} = {A4F4B19F-697A-425A-8041-E683E3132A7A}
-		{FCB38ED4-7D68-409A-AADF-A3AEA1240A55} = {8EB03EC7-0779-4EEB-9771-91E91589224F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B221F042-6DB6-40F3-ADDF-9F4E27967ACE}
